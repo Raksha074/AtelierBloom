@@ -1,10 +1,10 @@
-BlushBlossom 🌸
+AtelierBloom 🌸
 
-Welcome to the BlushBlossom repository! This project is a modern e-commerce web application built for a boutique flower shop, offering a seamless experience for browsing and purchasing beautiful floral arrangements.
+Welcome to the AtelierBloom repository! This project is a modern e-commerce web application built for a boutique flower shop, offering a seamless experience for browsing and purchasing beautiful floral arrangements.
 
 🌻 About The Project
 
-BlushBlossom provides an elegant online storefront where customers can explore seasonal blooms, order custom bouquets, and arrange for fresh flower deliveries. Built with performance and user experience in mind, it brings the beauty of a local florist straight to the web.
+AtelierBloom provides an elegant online storefront where customers can explore seasonal blooms, order custom bouquets, and arrange for fresh flower deliveries. Built with performance and user experience in mind, it brings the beauty of a local florist straight to the web.
 
 ✨ Key Features
 
@@ -40,12 +40,12 @@ Installation
 
 Clone the repository:
 
-git clone https://github.com/yourusername/BlushBlossom.git
+git clone https://github.com/yourusername/AtelierBloom.git
 
 
 Navigate into the project directory:
 
-cd BlushBlossom
+cd AtelierBloom
 
 
 Install the dependencies:
