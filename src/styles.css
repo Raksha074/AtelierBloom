@@ -1,0 +1,1603 @@
+@import "tailwindcss" source(none);
+@import "tw-animate-css";
+@source "../src";
+@custom-variant dark (&:is(.dark *));
+@theme inline {
+  --font-sans: "Montserrat", sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--foreground);
+  --color-popover: var(--background);
+  --color-popover-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--primary);
+  --color-destructive: var(--destructive);
+  --color-sage: var(--sage);
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
+:root {
+  --background: oklch(0.967 0.014 70);
+  --foreground: oklch(0.29 0.035 110);
+  --card: oklch(0.935 0.025 74);
+  --primary: oklch(0.37 0.054 145);
+  --primary-foreground: oklch(0.967 0.014 70);
+  --secondary: oklch(0.8 0.032 92);
+  --muted: oklch(0.92 0.025 75);
+  --muted-foreground: oklch(0.49 0.023 95);
+  --accent: oklch(0.86 0.04 49);
+  --sage: oklch(0.64 0.035 110);
+  --border: oklch(0.79 0.03 80);
+  --destructive: oklch(0.52 0.14 25);
+  --hero-wash: linear-gradient(
+    90deg,
+    oklch(0.945 0.026 75) 0%,
+    oklch(0.945 0.026 75 / 0.95) 22%,
+    oklch(0.945 0.026 75 / 0.15) 49%,
+    transparent 65%
+  );
+  --shadow-soft: 0 8px 30px oklch(0.29 0.035 110 / 0.09);
+}
+* {
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 32px;
+}
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.7;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+::selection {
+  background: var(--accent);
+}
+.container {
+  width: min(1240px, calc(100% - 112px));
+  margin-inline: auto;
+}
+.eyebrow {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+.section-title {
+  font-size: 38px;
+}
+.copy {
+  font-size: 11px;
+  color: var(--muted-foreground);
+  line-height: 1.85;
+}
+.botanical-button {
+  border-radius: 999px !important;
+  font-size: 9px !important;
+  font-weight: 500 !important;
+  height: 39px !important;
+  padding: 0 19px !important;
+  letter-spacing: 0;
+  box-shadow: none;
+  transition:
+    background 0.25s,
+    transform 0.25s !important;
+}
+.botanical-button-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.botanical-button-primary:hover {
+  background: var(--foreground);
+  transform: translateY(-2px);
+}
+.botanical-button-outline {
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  background: transparent;
+}
+.botanical-button-outline:hover {
+  background: var(--muted);
+}
+.botanical-button-text {
+  background: transparent;
+  padding-inline: 0 !important;
+  color: var(--foreground);
+}
+.botanical-button-text:hover {
+  opacity: 0.65;
+}
+.botanical-icon-button {
+  border: 1px solid var(--border);
+  border-radius: 50% !important;
+  background: transparent;
+  color: var(--foreground);
+  height: 29px !important;
+  width: 29px !important;
+  padding: 0 !important;
+}
+.botanical-icon-button:hover {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.arrow-disc {
+  display: grid;
+  place-items: center;
+  background: var(--primary-foreground);
+  color: var(--primary);
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  margin-right: -10px;
+  margin-left: 10px;
+}
+.arrow-disc svg {
+  width: 13px;
+}
+.header {
+  height: 102px;
+  display: grid;
+  grid-template-columns: 245px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 25px;
+}
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.brand-flower {
+  width: 35px;
+  height: 48px;
+  color: var(--sage);
+  stroke-width: 1;
+}
+.brand-name {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  line-height: 1.1;
+}
+.brand-sub {
+  font-size: 7px;
+  margin-top: 6px;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 27px;
+  min-width: 0;
+}
+.nav a {
+  font-size: 8px;
+  text-transform: uppercase;
+  position: relative;
+}
+.nav a:after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background: var(--sage);
+  left: 0;
+  right: 100%;
+  bottom: -7px;
+  transition: right 0.3s;
+}
+.nav a:hover:after,
+.nav a.active:after {
+  right: 0;
+}
+.header-tools {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.menu-toggle {
+  display: none !important;
+}
+.hero {
+  position: relative;
+  height: 590px;
+  background: var(--muted);
+  overflow: hidden;
+}
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 53%;
+}
+.hero:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--hero-wash);
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.hero-copy {
+  width: 420px;
+  padding-bottom: 25px;
+}
+.hero-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+.hero-label svg {
+  width: 24px;
+  color: var(--sage);
+  stroke-width: 1;
+}
+.hero h1 {
+  font-size: 77px;
+  line-height: 0.94;
+}
+.hero-description {
+  max-width: 295px;
+  margin: 23px 0 25px;
+  font-size: 11px;
+  line-height: 1.85;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.play-circle {
+  border: 1px solid var(--border);
+  height: 28px;
+  width: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  margin-right: 3px;
+}
+.play-circle svg {
+  width: 10px;
+  fill: currentColor;
+}
+.socials {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+.socials a {
+  transition: opacity 0.2s;
+}
+.socials a:hover {
+  opacity: 0.5;
+}
+.socials svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 1.5;
+}
+.pinterest {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 15px;
+}
+.hero-seal {
+  position: absolute;
+  right: 5%;
+  bottom: 42px;
+  z-index: 2;
+  text-align: center;
+  font-size: 7px;
+  line-height: 1.8;
+}
+.hero-seal svg {
+  height: 36px;
+  width: 36px;
+  stroke-width: 0.8;
+  display: block;
+  margin: 0 auto 9px;
+}
+.hero-seal span {
+  display: block;
+}
+.collections {
+  padding-block: 48px;
+  display: grid;
+  grid-template-columns: 215px minmax(0, 1fr);
+  gap: 35px;
+}
+.section-intro .eyebrow {
+  margin-bottom: 15px;
+}
+.section-intro .copy {
+  margin-top: 16px;
+  margin-bottom: 19px;
+  max-width: 230px;
+}
+.section-intro .section-title {
+  font-size: 33px;
+}
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+.collection-card {
+  min-width: 0;
+}
+.collection-image {
+  padding: 0 !important;
+  display: block;
+  width: 100%;
+  height: 218px;
+  overflow: hidden;
+  border-radius: 100px 100px 6px 6px;
+  position: relative;
+  background: var(--card);
+  cursor: pointer;
+}
+.collection-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+.collection-image:hover img {
+  transform: scale(1.055);
+}
+.collection-meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  margin-top: 13px;
+}
+.collection-meta h3 {
+  font: 500 9px/1.5 var(--font-sans);
+  text-transform: uppercase;
+}
+.collection-meta p {
+  font-size: 9px;
+  color: var(--muted-foreground);
+  margin-top: 3px;
+}
+.about {
+  background: var(--secondary);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: 365px;
+  position: relative;
+  overflow: hidden;
+}
+.about-photo {
+  width: 100%;
+  height: 365px;
+  object-fit: cover;
+  border-radius: 0 190px 190px 0;
+}
+.about-content {
+  padding: 35px 65px 35px 55px;
+  max-width: 700px;
+}
+.about-content .eyebrow {
+  margin-bottom: 13px;
+}
+.about-content .copy {
+  margin-top: 14px;
+  max-width: 345px;
+}
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 26px;
+  gap: 18px;
+}
+.feature {
+  border-right: 1px solid var(--sage);
+  padding-right: 12px;
+}
+.feature:last-child {
+  border: none;
+}
+.feature svg {
+  height: 27px;
+  width: 27px;
+  color: var(--muted-foreground);
+  stroke-width: 1;
+  margin-bottom: 8px;
+}
+.feature h3 {
+  font: 500 8px/1.5 var(--font-sans);
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+.feature p {
+  font-size: 8px;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+.weddings {
+  padding-block: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 65px;
+}
+.wedding-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: center;
+}
+.wedding-story .section-title {
+  font-size: 32px;
+}
+.wedding-image {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  border-radius: 120px 120px 90px 90px;
+}
+.inquiry {
+  position: relative;
+}
+.inquiry .section-title {
+  font-size: 36px;
+  margin-top: 8px;
+}
+.inquiry .copy {
+  margin-top: 9px;
+  margin-bottom: 15px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 8px;
+  color: var(--muted-foreground);
+}
+.field input,
+.field select,
+.field textarea,
+.newsletter-input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 4px;
+  padding: 8px 11px;
+  color: var(--foreground);
+  outline: none;
+  font-size: 9px;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+.field textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+.field-wide {
+  grid-column: 1/-1;
+}
+.inquiry-submit {
+  margin-top: 13px;
+}
+.confirmation {
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+}
+.confirmation > svg {
+  width: 30px;
+  height: 30px;
+  color: var(--primary);
+  stroke-width: 1;
+}
+.confirmation h3 {
+  font-size: 38px;
+}
+.form-note {
+  font-size: 8px;
+  color: var(--muted-foreground);
+  margin-top: 8px;
+}
+.gallery-section {
+  border-top: 1px solid var(--border);
+  padding-block: 35px;
+  display: grid;
+  grid-template-columns: 175px minmax(0, 1fr) 280px;
+  gap: 30px;
+  align-items: center;
+}
+.gallery-section .section-title {
+  font-size: 32px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.gallery-item {
+  height: 165px;
+  overflow: hidden;
+  border-radius: 60px 60px 6px 6px;
+  padding: 0;
+  border: 0;
+  background: var(--card);
+  cursor: pointer;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+.testimonial {
+  min-width: 0;
+}
+.quote-mark {
+  font-family: var(--font-serif);
+  font-size: 45px;
+  line-height: 1;
+  margin-top: 10px;
+}
+.testimonial blockquote {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.85;
+}
+.quote-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  margin-top: 14px;
+}
+.quote-author {
+  font-size: 8px;
+  text-transform: uppercase;
+}
+.quote-controls {
+  display: flex;
+  gap: 6px;
+}
+.stars {
+  display: flex;
+  gap: 3px;
+  margin-top: 9px;
+  color: var(--sage);
+}
+.stars svg {
+  height: 9px;
+  width: 9px;
+  fill: currentColor;
+}
+.footer {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding-top: 38px;
+  padding-bottom: 18px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr auto;
+  gap: 45px;
+}
+.footer .eyebrow {
+  font-size: 8px;
+  margin-bottom: 10px;
+}
+.footer p,
+.footer a {
+  font-size: 9px;
+  line-height: 1.9;
+  opacity: 0.8;
+}
+.newsletter {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  border: 1px solid color-mix(in oklab, var(--primary-foreground) 35%, transparent);
+  border-radius: 999px;
+  margin-top: 15px;
+  padding: 3px;
+}
+.newsletter-input {
+  background: transparent;
+  border: 0;
+  color: var(--primary-foreground);
+  padding: 4px 10px;
+}
+.newsletter-input::placeholder {
+  color: var(--primary-foreground);
+  opacity: 0.6;
+}
+.newsletter .botanical-icon-button {
+  background: var(--primary-foreground);
+  color: var(--primary);
+  height: 24px !important;
+  width: 24px !important;
+}
+.footer-socials {
+  display: flex;
+  gap: 16px;
+  margin: 10px 0;
+}
+.footer-socials svg {
+  height: 13px;
+  width: 13px;
+}
+.monogram {
+  font-family: var(--font-serif);
+  font-size: 70px;
+  line-height: 1;
+  position: relative;
+  align-self: center;
+}
+.monogram svg {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  top: -23px;
+  left: -14px;
+  stroke-width: 0.7;
+  opacity: 0.5;
+}
+.footer-bottom {
+  border-top: 1px solid color-mix(in oklab, var(--primary-foreground) 15%, transparent);
+  margin-top: 28px;
+  padding-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 7px;
+  opacity: 0.6;
+}
+.toast {
+  position: fixed;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 80;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: 6px;
+  box-shadow: var(--shadow-soft);
+  padding: 13px 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100% - 30px);
+  font-size: 11px;
+}
+.toast svg {
+  width: 16px;
+  flex-shrink: 0;
+}
+.preview-dialog {
+  max-width: 680px !important;
+  width: calc(100% - 32px) !important;
+  max-height: 90dvh;
+  overflow: auto;
+  padding: 24px !important;
+  border-radius: 8px !important;
+}
+.preview-dialog h2 {
+  font: 400 36px/1.05 var(--font-serif);
+}
+.preview-photo {
+  width: 100%;
+  max-height: 55dvh;
+  object-fit: cover;
+  border-radius: 150px 150px 6px 6px;
+}
+.preview-description {
+  font-size: 11px;
+  line-height: 1.9;
+}
+.preview-dialog .botanical-button {
+  justify-self: start;
+}
+.mobile-nav {
+  display: none;
+}
+.hero-copy {
+  animation: rise-in 0.9s ease both;
+}
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (min-width: 1600px) {
+  .hero {
+    height: 660px;
+  }
+  .hero-photo {
+    object-position: center 60%;
+  }
+  .hero-copy {
+    width: 470px;
+  }
+  .hero h1 {
+    font-size: 88px;
+  }
+  .collections {
+    padding-block: 55px;
+  }
+  .collection-image {
+    height: 250px;
+  }
+}
+@media (max-width: 1100px) {
+  .container {
+    width: calc(100% - 64px);
+  }
+  .header {
+    grid-template-columns: 200px minmax(0, 1fr) auto;
+    gap: 15px;
+  }
+  .nav {
+    gap: 15px;
+  }
+  .hero {
+    height: 540px;
+  }
+  .hero h1 {
+    font-size: 68px;
+  }
+  .hero-copy {
+    width: 350px;
+  }
+  .collections {
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 24px;
+  }
+  .collection-grid {
+    gap: 12px;
+  }
+  .collection-image {
+    height: 190px;
+  }
+  .about-content {
+    padding: 30px;
+  }
+  .weddings {
+    gap: 35px;
+  }
+  .wedding-story {
+    gap: 15px;
+  }
+  .gallery-section {
+    grid-template-columns: 150px minmax(0, 1fr) 225px;
+    gap: 20px;
+  }
+  .gallery-item {
+    height: 140px;
+  }
+  .footer-grid {
+    gap: 25px;
+  }
+}
+@media (max-width: 800px) {
+  .header {
+    height: 84px;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .nav {
+    display: none;
+  }
+  .menu-toggle {
+    display: inline-flex !important;
+  }
+  .header-tools {
+    gap: 10px;
+  }
+  .mobile-nav {
+    display: grid;
+    background: var(--background);
+    padding: 15px 32px 25px;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    border-top: 1px solid var(--border);
+  }
+  .mobile-nav a {
+    font-size: 10px;
+  }
+  .hero {
+    height: 530px;
+  }
+  .hero h1 {
+    font-size: 62px;
+  }
+  .hero-copy {
+    width: 330px;
+  }
+  .hero-actions {
+    gap: 14px;
+  }
+  .hero-seal {
+    right: 4%;
+    bottom: 30px;
+  }
+  .collections {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .collections .section-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 20px;
+    align-items: center;
+  }
+  .collections .section-intro .eyebrow {
+    grid-column: 1/-1;
+    margin-bottom: 8px;
+  }
+  .collections .section-intro .copy {
+    grid-column: 1;
+    margin: 10px 0 0;
+    max-width: 350px;
+  }
+  .collections .section-intro > a {
+    grid-column: 2;
+    grid-row: 2/4;
+  }
+  .collection-image {
+    height: 210px;
+  }
+  .about-content {
+    padding: 25px;
+  }
+  .about-photo {
+    height: 370px;
+  }
+  .about-content .section-title {
+    font-size: 32px;
+  }
+  .features {
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .feature {
+    padding-right: 7px;
+  }
+  .weddings {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .wedding-story {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .wedding-image {
+    height: 270px;
+  }
+  .inquiry {
+    border-top: 1px solid var(--border);
+    padding-top: 30px;
+  }
+  .gallery-section {
+    grid-template-columns: 170px minmax(0, 1fr);
+  }
+  .testimonial {
+    grid-column: 1/-1;
+    max-width: 500px;
+    margin: 15px auto 0;
+    text-align: center;
+  }
+  .quote-bottom {
+    text-align: left;
+  }
+  .gallery-item {
+    height: 170px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+  }
+  .footer-newsletter {
+    grid-column: 1/-1;
+    max-width: 350px;
+  }
+  .monogram {
+    display: none;
+  }
+}
+@media (max-width: 540px) {
+  .container {
+    width: calc(100% - 40px);
+  }
+  .header {
+    height: 80px;
+  }
+  .brand-name {
+    font-size: 18px;
+  }
+  .brand-flower {
+    width: 29px;
+  }
+  .header-tools > .botanical-button {
+    font-size: 8px !important;
+    height: 32px !important;
+    padding: 0 12px !important;
+  }
+  .hero {
+    height: 700px;
+  }
+  .hero-photo {
+    height: 420px;
+    top: auto;
+    bottom: 0;
+    object-position: 65% center;
+  }
+  .hero:after {
+    background: linear-gradient(180deg, var(--muted) 0%, var(--muted) 39%, transparent 57%);
+  }
+  .hero-inner {
+    align-items: flex-start;
+    padding-top: 30px;
+  }
+  .hero-copy {
+    width: 100%;
+    padding: 0;
+  }
+  .hero-label {
+    margin-bottom: 17px;
+  }
+  .hero h1 {
+    font-size: 58px;
+    max-width: 340px;
+  }
+  .hero-description {
+    margin: 15px 0 18px;
+    max-width: 300px;
+    font-size: 10px;
+  }
+  .hero-actions {
+    gap: 20px;
+  }
+  .hero-actions .botanical-button {
+    font-size: 8px !important;
+  }
+  .socials {
+    margin-top: 18px;
+    gap: 18px;
+  }
+  .hero-seal {
+    bottom: 22px;
+    right: 20px;
+    padding: 10px;
+    background: var(--background);
+    border-radius: 60px 60px 6px 6px;
+    font-size: 6px;
+  }
+  .hero-seal svg {
+    width: 25px;
+    height: 25px;
+  }
+  .collections {
+    padding-block: 30px;
+  }
+  .collections .section-intro {
+    display: block;
+  }
+  .collections .section-intro .copy {
+    margin-bottom: 14px;
+  }
+  .section-intro .section-title {
+    font-size: 34px;
+  }
+  .collection-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 14px;
+  }
+  .collection-image {
+    height: 210px;
+  }
+  .collection-meta h3 {
+    font-size: 8px;
+  }
+  .about {
+    grid-template-columns: 1fr;
+  }
+  .about-photo {
+    height: 275px;
+    width: calc(100% - 20px);
+    border-radius: 0 160px 160px 0;
+  }
+  .about-content {
+    padding: 30px 25px 35px;
+  }
+  .about-content .section-title {
+    font-size: 38px;
+  }
+  .features {
+    gap: 16px;
+    margin-top: 26px;
+  }
+  .feature h3 {
+    font-size: 8px;
+  }
+  .feature p {
+    font-size: 8px;
+  }
+  .weddings {
+    padding-block: 35px;
+    gap: 30px;
+  }
+  .wedding-story {
+    gap: 20px;
+    grid-template-columns: minmax(0, 1fr) 140px;
+  }
+  .wedding-image {
+    height: 240px;
+  }
+  .wedding-story .section-title {
+    font-size: 30px;
+  }
+  .wedding-story .copy {
+    font-size: 9px;
+  }
+  .wedding-story .botanical-button {
+    padding-inline: 13px !important;
+  }
+  .form-grid {
+    gap: 12px;
+  }
+  .field input,
+  .field select {
+    height: 38px;
+  }
+  .gallery-section {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding-block: 30px;
+  }
+  .gallery-section .section-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+  }
+  .gallery-section .section-intro .eyebrow {
+    grid-column: 1/-1;
+    margin-bottom: 0;
+  }
+  .gallery-section .section-title {
+    font-size: 30px;
+  }
+  .gallery-item {
+    height: 145px;
+  }
+  .gallery-grid {
+    gap: 9px;
+  }
+  .testimonial {
+    margin-top: 0;
+  }
+  .footer {
+    padding-top: 30px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+  .footer-newsletter {
+    max-width: 100%;
+  }
+  .footer-bottom {
+    gap: 20px;
+    font-size: 6px;
+  }
+  .preview-dialog h2 {
+    font-size: 30px;
+  }
+  .section-title {
+    font-size: 36px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *:before,
+  *:after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Shared page layouts: calm typography, plenty of room for the flowers. */
+.content-page {
+  padding-block: 40px 72px;
+  min-height: 65vh;
+}
+.page-heading {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 40px;
+}
+.page-heading .eyebrow {
+  margin-bottom: 14px;
+}
+.page-heading h1 {
+  font-size: 60px;
+}
+.page-heading .copy {
+  max-width: 540px;
+  margin: 20px auto 0;
+  font-size: 13px;
+}
+.section-heading-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 30px;
+}
+.section-heading-row > div {
+  min-width: 0;
+}
+.section-heading-row .eyebrow {
+  margin-bottom: 12px;
+}
+.home-occasions {
+  padding-block: 48px;
+}
+.home-occasions .collection-image {
+  height: 290px;
+}
+.occasion-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+.occasion-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px 24px;
+}
+.occasion-grid .collection-image {
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 150px 150px 6px 6px;
+}
+.occasion-grid .collection-meta h3 {
+  font: 400 24px/1.2 var(--font-serif);
+  text-transform: none;
+  margin-top: 5px;
+}
+.occasion-grid .collection-meta .eyebrow {
+  font-size: 8px;
+}
+.design-description {
+  color: var(--muted-foreground);
+  font-size: 10px;
+  line-height: 1.8;
+  margin-top: 12px;
+}
+.home-wedding {
+  padding-block: 55px;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 65px;
+  align-items: center;
+}
+.home-wedding .copy {
+  max-width: 300px;
+  margin: 18px 0 24px;
+}
+.home-wedding img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 180px 180px 6px 6px;
+}
+.story-cover {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  object-position: center 55%;
+  border-radius: 220px 220px 6px 6px;
+}
+.editorial-story {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 70px;
+  max-width: 1000px;
+  margin: 50px auto;
+}
+.editorial-story p {
+  font-size: 13px;
+  color: var(--muted-foreground);
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding-block: 30px;
+  border-top: 1px solid var(--border);
+}
+.values-grid svg {
+  width: 35px;
+  height: 35px;
+  color: var(--sage);
+  stroke-width: 1;
+  margin-bottom: 16px;
+}
+.values-grid h3 {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+.values-grid .copy {
+  font-size: 12px;
+}
+.wedding-hero h1 {
+  font-size: 72px;
+}
+.wedding-details {
+  padding-block: 55px;
+}
+.wedding-services {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+.wedding-services img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 160px 160px 6px 6px;
+}
+.wedding-services h3 {
+  font-size: 30px;
+  margin: 20px 0 12px;
+}
+.wedding-services .copy {
+  font-size: 12px;
+}
+.planning-band {
+  text-align: center;
+  padding-block: 50px;
+  background: var(--accent);
+}
+.planning-band .eyebrow {
+  margin-bottom: 12px;
+}
+.planning-band .copy {
+  margin: 18px auto 24px;
+  font-size: 12px;
+}
+.gallery-wide {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 24px;
+  margin-top: 45px;
+}
+.gallery-wide img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+.journal-grid img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 150px 150px 6px 6px;
+}
+.journal-grid .eyebrow {
+  margin-top: 20px;
+}
+.journal-grid h2 {
+  font-size: 32px;
+  margin: 12px 0;
+}
+.journal-grid .copy {
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+.article-text {
+  font-size: 14px;
+  line-height: 1.9;
+}
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: start;
+}
+.contact-studio img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 160px 160px 6px 6px;
+}
+.contact-studio h2 {
+  margin: 24px 0 12px;
+}
+.contact-studio .copy {
+  font-size: 12px;
+}
+.contact-layout .inquiry {
+  padding-top: 15px;
+}
+.contact-form {
+  margin-top: 28px;
+}
+.contact-form .form-grid {
+  gap: 20px 14px;
+}
+.contact-form .field {
+  font-size: 11px;
+}
+.contact-form .field input,
+.contact-form .field select,
+.contact-form .field textarea {
+  font-size: 12px;
+  padding: 12px;
+}
+.contact-form textarea {
+  min-height: 135px;
+}
+.contact-form .inquiry-submit {
+  margin-top: 24px;
+}
+.footer-page-links {
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 1000px) {
+  .occasion-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .contact-layout {
+    gap: 35px;
+  }
+  .wedding-services img,
+  .journal-grid img {
+    height: 250px;
+  }
+  .home-occasions .collection-image {
+    height: 230px;
+  }
+}
+@media (max-width: 800px) {
+  .page-heading h1 {
+    font-size: 48px;
+  }
+  .occasion-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .home-wedding {
+    gap: 30px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .home-wedding img {
+    height: 300px;
+  }
+  .journal-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .journal-grid img {
+    height: 350px;
+  }
+  .editorial-story {
+    gap: 30px;
+  }
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+  .contact-studio img {
+    height: 360px;
+  }
+  .contact-layout .inquiry {
+    border-top: 1px solid var(--border);
+    padding-top: 30px;
+  }
+  .wedding-services {
+    gap: 20px;
+  }
+  .wedding-services img {
+    height: 200px;
+  }
+  .values-grid {
+    gap: 24px;
+  }
+  .values-grid h3 {
+    font-size: 26px;
+  }
+}
+@media (max-width: 540px) {
+  .content-page {
+    padding-block: 25px 45px;
+  }
+  .page-heading {
+    margin-bottom: 28px;
+  }
+  .page-heading h1 {
+    font-size: 42px;
+  }
+  .page-heading .copy {
+    font-size: 11px;
+  }
+  .occasion-tabs {
+    gap: 7px;
+    margin-bottom: 28px;
+  }
+  .occasion-tabs .botanical-button {
+    height: 34px !important;
+    padding: 0 13px !important;
+  }
+  .occasion-grid {
+    gap: 28px 14px;
+  }
+  .occasion-grid .collection-meta h3 {
+    font-size: 22px;
+  }
+  .design-description {
+    font-size: 9px;
+  }
+  .home-occasions {
+    padding-block: 30px;
+  }
+  .section-heading-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .section-heading-row > a {
+    justify-self: start;
+  }
+  .home-occasions .collection-image {
+    height: 210px;
+  }
+  .home-wedding {
+    grid-template-columns: 1fr;
+    padding-block: 35px;
+    gap: 25px;
+  }
+  .home-wedding img {
+    height: 280px;
+  }
+  .story-cover {
+    height: 290px;
+  }
+  .editorial-story {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-block: 35px;
+  }
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  .wedding-hero h1 {
+    font-size: 58px;
+  }
+  .wedding-services {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .wedding-services img {
+    height: 320px;
+  }
+  .gallery-wide {
+    grid-template-columns: 1fr;
+  }
+  .gallery-wide img {
+    height: 260px;
+  }
+  .journal-grid img {
+    height: 290px;
+  }
+  .contact-studio img {
+    height: 260px;
+  }
+  .contact-form .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-form .field input,
+  .contact-form .field select {
+    height: 44px;
+  }
+}
+
+.flower-finder {
+  margin: 0 0 4rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+.finder-error { margin-top: 1rem; color: var(--destructive); }
+.finder-results { margin-top: 2rem; display: grid; gap: 1.25rem; }
+.finder-picks { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.finder-pick { display: flex; gap: 1rem; align-items: flex-start; }
+.finder-pick img { width: 96px; height: 96px; object-fit: cover; border-radius: var(--radius); }
+.finder-pick h3 { font-family: "Cormorant Garamond", serif; font-size: 1.35rem; }
+.finder-pick p { font-size: 0.9rem; color: var(--muted-foreground); margin: 0.25rem 0 0.5rem; }
+.finder-pick a { display: inline-flex; gap: 0.35rem; align-items: center; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--primary); }
+.finder-pick a svg { width: 0.9rem; height: 0.9rem; }
